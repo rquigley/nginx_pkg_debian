@@ -10,6 +10,8 @@ WITH_LUA := $(shell printf "Source: nginx\nBuild-Depends: libluajit-5.1-dev\nlib
 	dpkg-checkbuilddeps - >/dev/null 2>&1 && \
 	echo "--add-module=$(MODULESDIR)/ngx_devel_kit --add-module=$(MODULESDIR)/lua-nginx-module")
 
+MODULESDIR = $(CURDIR)/debian/modules
+
 %:
 	dh $@ 
 
