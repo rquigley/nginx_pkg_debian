@@ -44,7 +44,6 @@ override_dh_auto_build:
 		$(WITH_LUA) \
 		--with-cc-opt="$(CFLAGS)" \
 		--with-ld-opt="$(LDFLAGS)" \
-		--with-ipv6
 	dh_auto_build
 
 configure_debug:
@@ -64,24 +63,11 @@ configure_debug:
 		--user=nginx \
 		--group=nginx \
 		--with-http_ssl_module \
-		--with-http_realip_module \
-		--with-http_addition_module \
-		--with-http_sub_module \
-		--with-http_dav_module \
-		--with-http_flv_module \
-		--with-http_mp4_module \
-		--with-http_gunzip_module \
-		--with-http_gzip_static_module \
-		--with-http_random_index_module \
-		--with-http_secure_link_module \
-		--with-http_stub_status_module \
-		--with-mail \
-		--with-mail_ssl_module \
-		--with-file-aio \
+		--add-module=$(MODULESDIR)/nginx-statsd \
 		$(WITH_SPDY) \
+		$(WITH_LUA) \
 		--with-cc-opt="$(CFLAGS)" \
 		--with-ld-opt="$(LDFLAGS)" \
-		--with-ipv6 \
 		--with-debug
 
 override_dh_auto_install:
