@@ -43,7 +43,7 @@ override_dh_auto_build:
 		$(WITH_SPDY) \
 		$(WITH_LUA) \
 		--with-cc-opt="$(CFLAGS)" \
-		--with-ld-opt="$(LDFLAGS)" \
+		--with-ld-opt="$(LDFLAGS)"
 	dh_auto_build
 
 configure_debug:
